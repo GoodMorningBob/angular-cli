@@ -13,6 +13,7 @@ import { resolveProjectModule } from '../../utilities/require-project-module';
 import { NEW_SW_VERSION } from '../../utilities/service-worker';
 
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const Dotenv = require('dotenv-webpack');
 
 const OLD_SW_VERSION = '>= 1.0.0-beta.5 < 2.0.0';
 
@@ -150,6 +151,7 @@ export function getProdConfig(wco: WebpackConfigOptions) {
   return {
     entry: entryPoints,
     plugins: [
+      new Dotenv(),
       new webpack.EnvironmentPlugin({
         'NODE_ENV': 'production'
       }),
