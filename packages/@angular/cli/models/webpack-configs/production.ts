@@ -151,7 +151,9 @@ export function getProdConfig(wco: WebpackConfigOptions) {
   return {
     entry: entryPoints,
     plugins: [
-      new Dotenv(),
+      new Dotenv({
+        systemvars: true
+      }),
       new webpack.EnvironmentPlugin({
         'NODE_ENV': 'production'
       }),

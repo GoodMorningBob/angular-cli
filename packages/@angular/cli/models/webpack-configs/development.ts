@@ -5,6 +5,9 @@ import { WebpackConfigOptions } from '../webpack-config';
 
 export function getDevConfig(_wco: WebpackConfigOptions) {
   return {
-    plugins: [new Dotenv(), new NamedModulesPlugin()]
+    plugins: [
+      new Dotenv({systemvars: true}),
+      new NamedModulesPlugin()
+    ]
   };
 }
